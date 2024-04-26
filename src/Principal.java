@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
 import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
 import br.com.alura.screenmatch.modelos.Episodio;
@@ -29,7 +30,6 @@ public class Principal {
         filtro.filtra(filme1);
         System.out.println("--------------------------------------------------");
 
-
         Filme filme2 = new Filme();
         filme2.setNome("Duna 2");
         filme2.setAnoDeLancamento(2024);
@@ -50,8 +50,6 @@ public class Principal {
         System.out.println("Média de avaliações do filme: " + filme2.pegaMedia());
         filtro.filtra(filme2);
 
-
-        
         System.out.println("--------------------------------------------------");
 
         Serie serie = new Serie();
@@ -87,7 +85,24 @@ public class Principal {
         episodio.setSerie(serie);
         episodio.setTotalVisualizacoes(300);
         filtro.filtra(episodio);
-        
+
+        System.out.println("--------------------------------------------------");
+
+        Filme filme3 = new Filme();
+        filme3.setNome("O Grande Hotel Budapeste");
+        filme3.setDuracaoEmMinutos(99);
+        filme3.setDiretor("Wes Anderson");
+        filme3.setAnoDeLancamento(2014);
+        filme3.avalia(8.1);
+
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+        listaDeFilmes.add(filme1);
+        listaDeFilmes.add(filme2);
+        listaDeFilmes.add(filme3);
+        System.out.println("Tamanho da lista: " + listaDeFilmes.size());
+        System.out.println("Primeiro filme: " + listaDeFilmes.get(0).getNome());
+        System.out.println(listaDeFilmes);
+        System.out.println("toString do filme: " + listaDeFilmes.get(0).toString());
 
     }
 }
