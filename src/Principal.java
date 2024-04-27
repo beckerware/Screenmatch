@@ -7,9 +7,7 @@ import br.com.alura.screenmatch.modelos.Serie;
 
 public class Principal {
     public static void main(String[] args) {
-        Filme filme1 = new Filme();
-        filme1.setNome("Saltburn");
-        filme1.setAnoDeLancamento(2023);
+        Filme filme1 = new Filme("Saltburn", 2023);
         filme1.setDiretor("Emerald Fennell");
         filme1.setIncluidoNoPlano(true);
         filme1.setDuracaoEmMinutos(131);
@@ -30,9 +28,7 @@ public class Principal {
         filtro.filtra(filme1);
         System.out.println("--------------------------------------------------");
 
-        Filme filme2 = new Filme();
-        filme2.setNome("Duna 2");
-        filme2.setAnoDeLancamento(2024);
+        Filme filme2 = new Filme("Duna 2", 2024);
         filme2.setDiretor("Denis Villeneuve");
         filme2.setIncluidoNoPlano(false);
         filme2.setDuracaoEmMinutos(165);
@@ -52,10 +48,29 @@ public class Principal {
 
         System.out.println("--------------------------------------------------");
 
-        Serie serie = new Serie();
 
-        serie.setNome("House");
-        serie.setAnoDeLancamento(2004);
+        Filme filme3 = new Filme("O Grande Hotel Budapeste", 2014);
+        filme3.setDuracaoEmMinutos(99);
+        filme3.setDiretor("Wes Anderson");
+        filme3.avalia(8.1);
+        filme3.exibeFichaTecnica();
+        System.out.println("Média de avaliações do filme: " + filme3.pegaMedia());
+        filtro.filtra(filme3);
+
+        System.out.println("--------------------------------------------------");
+
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+        listaDeFilmes.add(filme1);
+        listaDeFilmes.add(filme2);
+        listaDeFilmes.add(filme3);
+        System.out.println("Tamanho da lista: " + listaDeFilmes.size());
+        System.out.println("Primeiro filme: " + listaDeFilmes.get(0).getNome());
+        System.out.println(listaDeFilmes);
+        System.out.println("toString do filme: " + listaDeFilmes.get(0).toString());
+
+        System.out.println("--------------------------------------------------");
+
+        Serie serie = new Serie("House", 2004);
         serie.setAtiva(false);
         serie.setEpisodiosPorTemporada(24);
         serie.setTemporadas(8);
@@ -88,21 +103,6 @@ public class Principal {
 
         System.out.println("--------------------------------------------------");
 
-        Filme filme3 = new Filme();
-        filme3.setNome("O Grande Hotel Budapeste");
-        filme3.setDuracaoEmMinutos(99);
-        filme3.setDiretor("Wes Anderson");
-        filme3.setAnoDeLancamento(2014);
-        filme3.avalia(8.1);
-
-        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
-        listaDeFilmes.add(filme1);
-        listaDeFilmes.add(filme2);
-        listaDeFilmes.add(filme3);
-        System.out.println("Tamanho da lista: " + listaDeFilmes.size());
-        System.out.println("Primeiro filme: " + listaDeFilmes.get(0).getNome());
-        System.out.println(listaDeFilmes);
-        System.out.println("toString do filme: " + listaDeFilmes.get(0).toString());
 
     }
 }
